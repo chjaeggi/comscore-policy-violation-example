@@ -1,4 +1,4 @@
-package com.strange.comscoreexampleapp
+package com.strange.comscoreapp
 
 import org.junit.Test
 

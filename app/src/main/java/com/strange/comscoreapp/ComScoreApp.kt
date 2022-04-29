@@ -1,4 +1,4 @@
-package com.strange.comscoreexampleapp
+package com.strange.comscoreapp
 
 import android.app.Application
 import android.os.StrictMode
@@ -7,10 +7,11 @@ import com.comscore.PublisherConfiguration
 import com.comscore.UsagePropertiesAutoUpdateMode
 import com.comscore.util.log.LogLevel
 
-class ExampleApplication : Application() {
+class ComScoreApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
         StrictMode.setVmPolicy(
             StrictMode.VmPolicy.Builder()
                 .detectAll()
@@ -18,6 +19,7 @@ class ExampleApplication : Application() {
                 .build()
         )
 
+        // use an example "fake" config for comscore tracking:
         val vars: MutableMap<String, String> = HashMap()
         vars["ns_ap_an"] = "test"
         vars["mp_v"] = "test"
@@ -34,6 +36,6 @@ class ExampleApplication : Application() {
         Analytics.setLogLevel(LogLevel.DEBUG)
         Analytics.getConfiguration().enableImplementationValidationMode()
         Analytics.start(this)
-
     }
+
 }
